@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9xG-FA-Inf">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="40" y="701.33333333333337" width="310" height="68.666666666666629"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvE-bd-gIm">
-                                        <rect key="frame" x="0.0" y="0.0" width="310" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="24.333333333333332"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
                                         <connections>
@@ -28,7 +28,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsB-rA-GHz">
-                                        <rect key="frame" x="0.0" y="51" width="310" height="17.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="44.333333333333258" width="310" height="24.333333333333329"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Login"/>
                                         <connections>
@@ -37,8 +37,9 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="fsB-rA-GHz" firstAttribute="height" secondItem="fvE-bd-gIm" secondAttribute="height" multiplier="0.563107" id="Ezh-J9-ceO"/>
+                                    <constraint firstItem="fsB-rA-GHz" firstAttribute="height" secondItem="fvE-bd-gIm" secondAttribute="height" id="Ezh-J9-ceO"/>
                                     <constraint firstAttribute="height" constant="68.670000000000002" id="Wvd-YS-KZr"/>
+                                    <constraint firstItem="fvE-bd-gIm" firstAttribute="width" secondItem="fsB-rA-GHz" secondAttribute="width" id="YWu-3U-VQX"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -262,6 +263,7 @@
             <point key="canvasLocation" x="113.84615384615384" y="-28.436018957345969"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.64191959730000003" green="0.43885927070000003" blue="0.9048047307" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

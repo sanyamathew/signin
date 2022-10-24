@@ -20,8 +20,8 @@ class ViewController: UIViewController {
         setUpElements()
         
         func setUpElements(){
-            Utilities.styleFilledButton(signUpButton)
-            Utilities.styleHollowButton(loginButton)
+            //Utilities.styleFilledButton(signUpButton)
+            //Utilities.styleHollowButton(loginButton)
         }
     }
 
