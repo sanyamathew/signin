@@ -8,10 +8,19 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    @IBOutlet weak var WelcomeLabel: UILabel!
+    
+    @IBOutlet weak var MoonImage: UIImageView!
+    
+    @IBOutlet weak var GetStartedButton: UIButton!
+    
+    @IBOutlet weak var GetStartedLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
     
