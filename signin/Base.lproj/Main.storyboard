@@ -38,13 +38,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="spo-Jz-tfI">
                                 <rect key="frame" x="40" y="430.00000000000006" width="310" height="242.66666666666669"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moO-CN-fVV">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moO-CN-fVV">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="34"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8iX-wM-8jI">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8iX-wM-8jI">
                                         <rect key="frame" x="0.0" y="54" width="310" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -55,10 +55,10 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Sign In"/>
                                         <connections>
-                                            <segue destination="Vif-iG-bzt" kind="show" id="k8c-qm-0Sm"/>
+                                            <action selector="loginTapped:" destination="6t9-f4-5P7" eventType="touchUpInside" id="QJJ-OB-ynf"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRE-vR-Fyu">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRE-vR-Fyu">
                                         <rect key="frame" x="0.0" y="162.33333333333337" width="310" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
@@ -99,10 +99,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="pRV-uf-VsK"/>
                     <connections>
+                        <outlet property="emailTextField" destination="moO-CN-fVV" id="DXK-qT-XuU"/>
                         <outlet property="errorLabel" destination="IRE-vR-Fyu" id="B6i-0U-BsZ"/>
-                        <outlet property="firstNameTextField" destination="moO-CN-fVV" id="0TP-Zv-YWI"/>
-                        <outlet property="lastNameTextField" destination="8iX-wM-8jI" id="1ey-wL-fzY"/>
-                        <outlet property="loginButton" destination="ZTz-Oa-DT1" id="Nvu-ol-iHh"/>
+                        <outlet property="loginButton" destination="ZTz-Oa-DT1" id="uGB-W2-4bK"/>
+                        <outlet property="passwordTextField" destination="8iX-wM-8jI" id="aLP-jv-u25"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcc-ST-gbp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -158,10 +158,10 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Sign Up"/>
                                         <connections>
-                                            <segue destination="lSl-WQ-GMH" kind="show" id="NMb-Lc-8a5"/>
+                                            <action selector="signUpTapped:" destination="cy7-ex-Fw5" eventType="touchUpInside" id="wXW-AT-2jQ"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By3-1s-rNp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By3-1s-rNp">
                                         <rect key="frame" x="0.0" y="294.33333333333331" width="310" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
@@ -200,7 +200,7 @@
         <!--welcome-->
         <scene sceneID="IV8-8u-qpq">
             <objects>
-                <viewController title="welcome" id="lSl-WQ-GMH" sceneMemberID="viewController">
+                <viewController title="welcome" id="lSl-WQ-GMH" customClass="HomeViewController" customModule="signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kUb-cf-QCJ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,11 +212,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sleeping" translatesAutoresizingMaskIntoConstraints="NO" id="kvK-va-ddE">
+                                <rect key="frame" x="66" y="242" width="275" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ab-qo-JoG">
+                                <rect key="frame" x="147" y="461" width="112" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.81039418891090242" green="0.79839108015148663" blue="0.85171487714242911" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Get Started" cornerStyle="capsule"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="E49-Ed-usd"/>
                         <color key="backgroundColor" red="0.92152547839999999" green="0.91327440739999999" blue="0.94902437930000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="7Np-Kv-n6o"/>
+                    <connections>
+                        <outlet property="GetStartedButton" destination="9ab-qo-JoG" id="phu-8q-GH8"/>
+                        <outlet property="MoonImage" destination="kvK-va-ddE" id="OTo-Pw-F9H"/>
+                        <outlet property="WelcomeLabel" destination="emi-n5-RTG" id="nrq-9n-x7Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLh-JW-ZuP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -225,7 +241,7 @@
         <!--Home View Controller-->
         <scene sceneID="zZg-Qi-kOU">
             <objects>
-                <viewController id="Vif-iG-bzt" customClass="HomeViewController" customModule="signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="Vif-iG-bzt" customClass="HomeViewController" customModule="signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TnD-dk-ZWb">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,6 +290,7 @@
         <image name="465aa7df-b297-4afe-a724-aece2ed747bd" width="400" height="400"/>
         <image name="moon.png 13-41-26-816" width="512" height="512"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="sleeping" width="512" height="512"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
