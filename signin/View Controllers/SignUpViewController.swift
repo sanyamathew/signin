@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
 
@@ -25,7 +28,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpElements()
 
         // Do any additional setup after loading the view.
@@ -54,8 +56,81 @@ class SignUpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+    func validateFields() -> String?{
+        
+        //check all fields are filled in
+        
+        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||  lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "please fill in all fields"
+        }
+        //is password valid
+        
+        
+            
+        
+        return nil
+    }
     @IBAction func signUpTapped(_ sender: Any) {
+        
+        //validate fields
+        errorLabel.alpha = 1
+        
+        let error = validateFields()
+        if error != nil {
+            showError(error!)
+        }
+        
+        else {
+            // CLEAN DATA
+            
+            let first = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let last = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            //CREATE USER
+            
+            Auth.auth().createUser(withEmail: email, password: password) { [self](result, error) in
+                
+                if error != nil {
+                    self.showError("Error creating user")
+                }
+                
+                else {
+                    // STORE FIRST & LAST NAME
+                    let db = Firestore.firestore()          // returns firestore object
+                    
+                    db.collection("users").addDocument(data: [
+                        "first": first,
+                        "last": last,
+                        "uid": result!.user.uid
+                    ]) { (error) in
+                        
+                        if error != nil{
+                            self.showError("There was an error saving data")
+                        }
+                    }
+                }
+              }
+            
+            // go to home screen
+            self.transitionToHome()
+            
+        }
+        
+    }
+    
+    func showError(_ message:String)
+    {
+        errorLabel.text = message
+        errorLabel.alpha = 1
+    }
+    
+    func transitionToHome() {
+        let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        view.window?.rootViewController = homeViewController
+        view.window?.makeKeyAndVisible()
     }
     
 }

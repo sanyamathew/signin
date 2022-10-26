@@ -15,8 +15,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var GetStartedButton: UIButton!
     
-    @IBOutlet weak var GetStartedLabel: UILabel!
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
 
